@@ -1,0 +1,1 @@
+﻿CREATE TABLE [User] (Id int PRIMARY KEY NOT NULL, Username nvarchar(50) NOT NULL, Activated bit NOT NULL);
