@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,7 +14,7 @@ namespace TechnicalTest.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             // C# Part 1 - Put code to change the label's text here
-
+            lblCSharpPart1.Text = "Text has been changed!";
 
             // C# Part 2 
             /*
@@ -41,11 +42,16 @@ namespace TechnicalTest.Pages
              */
             /*
              * Insert explaination here:
-             * 
-             * 
-             * 
-             * 
+             * ClearList1 calls the Clear method on the passed List object. This method modifies the existing list by removing all its elements. 
+             * As a result, any references to this list outside the ClearList1 function will point to an empty list, reflecting the changes.
+             *
+             * ClearList2, on the other hand, creates a new List<int> instance and assigns it to the local variable 'list'. 
+             * This reassignment does not affect the original list passed to the function; it merely changes the local reference to a new, empty list.
+             * Therefore, the original list remains unchanged outside of ClearList2.
+             *
+             * In summary, ClearList1 modifies the original list directly, while ClearList2 only changes the local reference to a new list without affecting the original.
              */
+
             List<int> myList = new List<int>() { 1, 2, 3 };
             ClearList1(myList); // Clears myList
             
@@ -73,6 +79,11 @@ namespace TechnicalTest.Pages
         protected int GetTrueCount(string[] truthArray)
         {
             int count = 0;
+            foreach (var value in truthArray)
+            {
+                bool parsed = bool.TryParse(value, out bool result) ? result : value == "1";
+                if (parsed) count++;
+            }
             return count;
         }
 
@@ -87,8 +98,33 @@ namespace TechnicalTest.Pages
         /// <returns></returns>
         protected string CompressString(string input)
         {
-            string output = string.Empty;
-            return output;
+            if (string.IsNullOrEmpty(input))
+                return input;
+
+            var sb = new StringBuilder();
+            int count = 1;
+            char last = input[0];
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                if (input[i] == last)
+                {
+                    count++;
+                }
+                else
+                {
+                    sb.Append(last);
+                    sb.Append(count);
+                    last = input[i];
+                    count = 1;
+                }
+            }
+
+            // Append the last set of characters
+            sb.Append(last);
+            sb.Append(count);
+
+            return sb.ToString();
         }
 
 

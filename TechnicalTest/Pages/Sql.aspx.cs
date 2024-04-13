@@ -12,13 +12,13 @@ namespace TechnicalTest.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             // Part 1 - Modify the InsertUsers function to insert Users into the database. Uncomment the line below to begin
-            //InsertUsers();
+            InsertUsers();
 
             // Part 2 - Modify the SQL command within the DisplayActiveUsers function to display users that are activated. Uncomment the line below to begin
-            //DisplayActiveUsers();
+            DisplayActiveUsers();
 
             // Part 3 - Determine the issue with the SqlBug function. Uncomment the line below to begin
-            //SqlBug();
+            SqlBug();
         }
 
         /// <summary>
@@ -28,19 +28,23 @@ namespace TechnicalTest.Pages
         /// </summary>
         protected void InsertUsers()
         {
-            string sqlCommand = ""; // Put insert statements here
+            string sqlCommand = @"
+                INSERT INTO enLabelDatabase.dbo.[User] (Username, Activated) VALUES ('User1', 1);
+                INSERT INTO enLabelDatabase.dbo.[User] (Username, Activated) VALUES ('User2', 0);
+                INSERT INTO enLabelDatabase.dbo.[User] (Username, Activated) VALUES ('User3', 1);
+                INSERT INTO enLabelDatabase.dbo.[User] (Username, Activated) VALUES ('User4', 0);
+                INSERT INTO enLabelDatabase.dbo.[User] (Username, Activated) VALUES ('User5', 1);";
 
             ExecuteNonQuery(sqlCommand, "enLabelDatabase");
-
-
         }
+
         /// <summary>
         ///  Write a SQL statement to retrieve all active users from the Users table. 
         ///  Use "enLabelDatabase.dbo.[User]" for the table name and "Activated" as the column
         /// </summary>
         protected void DisplayActiveUsers()
         {
-            string sqlCommand = ""; //Edit this line
+            string sqlCommand = "SELECT * FROM enLabelDatabase.dbo.[User] WHERE Activated = 1"; //Edited this line
             DataSet dataSet = ExecuteDataSet(sqlCommand, "enLabelDatabase");
 
 

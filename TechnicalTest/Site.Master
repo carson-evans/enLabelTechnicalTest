@@ -14,6 +14,7 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/CSS/Button.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -51,6 +52,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/Pages/Html.aspx">HTML</a></li>
                         <li><a runat="server" href="~/Pages/CSharp">C#</a></li>
                         <li><a runat="server" href="~/Pages/Sql">SQL</a></li>
                     </ul>
