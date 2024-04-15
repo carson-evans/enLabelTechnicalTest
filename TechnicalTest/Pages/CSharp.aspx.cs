@@ -21,8 +21,8 @@ namespace TechnicalTest.Pages
              * Edit the GetTrueCount function so that it returns the count  of strings in an array that will evaluate as "true" when cast to a boolean variable.
              */
             string[] truthArray = new string[] { "0", "", "true", "Foobar", "False", "1", "True", "test", "1", "FALSE" };
-            int count = GetTrueCount(truthArray);
-
+            int trueCount = GetTrueCount(truthArray);
+            Console.WriteLine($"Count of 'true' values: {trueCount}");
 
             // C# Part 3
             /* 
@@ -32,7 +32,7 @@ namespace TechnicalTest.Pages
              */
             string uncompressedInput = "aaaabbccccdddeeeef";
             string compressedOutput = CompressString(uncompressedInput);
-            Console.WriteLine(compressedOutput);
+            Console.WriteLine($"Compressed string: {compressedOutput}");
 
             // C# Part 4
             /*
@@ -51,6 +51,9 @@ namespace TechnicalTest.Pages
              *
              * In summary, ClearList1 modifies the original list directly, while ClearList2 only changes the local reference to a new list without affecting the original.
              */
+
+            TestGetTrueCount();
+            TestCompressString();
 
             List<int> myList = new List<int>() { 1, 2, 3 };
             ClearList1(myList); // Clears myList
@@ -144,6 +147,22 @@ namespace TechnicalTest.Pages
         protected void ClearList2(List<int> list)
         {
             list = new List<int>();
+        }
+
+        // Test methods to verify functionality
+        private void TestGetTrueCount()
+        {
+            string[] testArray = { "0", "false", "False", "FALSE", "true", "True", "TRUE", "1", "not true", "yes" };
+            int result = GetTrueCount(testArray);
+            Console.WriteLine($"Test GetTrueCount: Expected 4, Got {result}");
+        }
+
+        private void TestCompressString()
+        {
+            string testInput = "aaaabbccccdddeeeef";
+            string expected = "a4b2c4d3e4f1";
+            string actual = CompressString(testInput);
+            Console.WriteLine($"Test CompressString: Expected {expected}, Got {actual}");
         }
     }
 }

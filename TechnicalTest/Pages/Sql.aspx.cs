@@ -56,11 +56,12 @@ namespace TechnicalTest.Pages
         /// Resolve any issues with the below function
         /// </summary>
         /// <returns></returns>
-        protected DataSet SqlBug()
+        protected DataSet SqlBug() // Squashed
         {
-            string sqlCommand = "SELECT Users FROM enLabelDatabase.dbo.[User]";
+            // Assuming it is meant to select all columns from the User Table
+            string sqlCommand = "SELECT * FROM enLabelDatabase.dbo.[User]";
 
-            DataSet dataSet = ExecuteDataSet(sqlCommand, "enLabelDtabase");
+            DataSet dataSet = ExecuteDataSet(sqlCommand, "enLabelDatabase");
             return dataSet;
         }
 

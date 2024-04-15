@@ -32,7 +32,7 @@
             &emsp;Currently the navigation bar only provides buttons to return home and go to the C# test and SQL test pages,
             but does not include a way to get to this page. Note that this navigation bar appears on all pages throughout this website.
             Make sure your change is also reflected on all of the other pages.
-        </p>
+        </p> <!-- Added to Site.Master.cs -->
         <h2>Part 4 - Calling C#</h2>
         <p class="lead">
             &emsp;Modify the button below to call the "btnCSharp_Click" function that is within the Html.aspx.cs file when it is clicked
@@ -44,7 +44,7 @@
         <h2>Part 1 - Add CSS Style Sheet</h2>
         <p class="lead">
             &emsp;Add the Button.css style sheet to this page. This style sheet can be found within the CSS directory within this project
-        </p>
+        </p> <!-- Added to Site.Master.cs -->
         <h2>Part 2 - </h2>
         <p class="lead">
             &emsp;Add "btn btn-primary btn-lg" as a css class to the button below. You should notice a style change to this button.
